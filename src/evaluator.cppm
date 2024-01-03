@@ -1,5 +1,5 @@
-export module evaluator;
+module evaluator;
 
-#include <string>
+import std;
 
 void print_test(const std::string& message);

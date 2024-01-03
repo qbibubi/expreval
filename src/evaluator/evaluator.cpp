@@ -1,4 +1,4 @@
-import evaluator;
+module evaluator;
 
 #include <iostream>
 

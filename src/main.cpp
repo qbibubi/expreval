@@ -1,7 +1,5 @@
 import evaluator;
 
-#include <iostream>
-
 int main()
 {
   std::cout << "test message" << std::endl;

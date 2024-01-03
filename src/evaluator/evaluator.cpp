@@ -1,8 +1,5 @@
-module evaluator;
+#include "evaluator.h"
 
-#include <iostream>
+using namespace evaluator;
 
-void print_test(const std::string &message)
-{
-  std::cout << message << std::endl;
-}
+

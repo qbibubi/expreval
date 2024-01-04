@@ -1,6 +1,7 @@
-#include "../include/evaluator.h"
+#include "include/evaluator.h"
 
-int main()
-{
+int main() {
+  std::cout << "test" << std::endl;
+
   return 0;
 }

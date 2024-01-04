@@ -1,3 +1,4 @@
 # expreval
 
-Expression evaluator written with C++20.
+> mathematical expression evaluator written with C++20.
+

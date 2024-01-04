@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "stack"
 
 namespace evaluator
 {
@@ -24,6 +25,7 @@ namespace evaluator
 
 
   /*
-   * 
+   * Real evaluator part 
    */
 };
+

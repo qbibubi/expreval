@@ -1,7 +1,6 @@
-import evaluator;
+#include "../include/evaluator.h"
 
 int main()
 {
-  std::cout << "test message" << std::endl;
   return 0;
 }

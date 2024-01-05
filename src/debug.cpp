@@ -1,3 +1,8 @@
+/**
+ * @file debug.cpp
+ * @brief File containing debug and logging functions
+ */
+
 #include "debug.h"
 
 template <typename T> void debug::print_argument(const T &argument) {

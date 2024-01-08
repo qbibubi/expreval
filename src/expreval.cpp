@@ -1,10 +1,5 @@
 #include "expreval.h"
-
-void expreval::remove_whitespace(std::string &expression) {
-  expression.erase(
-      std::remove_if(expression.begin(), expression.end(), ::isspace),
-      expression.end());
-}
+#include <cctype>
 
 std::vector<char> expreval::tokenize(const std::string &expression) {
   std::vector<char> tokens;
@@ -14,22 +9,28 @@ std::vector<char> expreval::tokenize(const std::string &expression) {
   return tokens;
 }
 
-void expreval::shunting_yard(std::string &expression) {
+bool is_operator(const char &token) {
+  return token == '+' || token == '-' || token == '*' || token == '/';
+}
+
+void expreval::shunting_yard(const std::string &expression) {
   if (expression.empty() && expression.data() != nullptr) {
     return;
   }
 
   std::stack<char> operators;
-  std::stack<char> output;
-  remove_whitespace(expression);
-
-  // tokenize
-  std::vector<char> tokens = tokenize(expression);
-  while (!tokens.empty()) {
-    for (const auto &token : tokens) {
-      if (std::isdigit(token)) {
-        output.push(token);
-      }
+  std::queue<std::string> output;
+  for (const auto &c : expression) {
+    if (std::isspace(c)) {
+      // continue
+    } else if (std::isdigit(c)) {
+      //
+    } else if (is_operator(c)) {
+      //
+    } else if (c == '(') {
+      //
+    } else if (c == ')') {
+      //
     }
   }
 }

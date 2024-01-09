@@ -10,8 +10,8 @@
 
 namespace expreval {
 
-bool is_operator(const char &token);
-int get_precedence(const char &op);
+bool is_operator(char token);
+int get_precedence(char op);
 
 std::optional<std::queue<std::string>>
 shunting_yard(const std::string &expression);

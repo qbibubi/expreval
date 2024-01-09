@@ -1,10 +1,10 @@
 #include "expreval.h"
 
-bool is_operator(const char &token) {
+bool expreval::is_operator(char token) {
   return token == '+' || token == '-' || token == '*' || token == '/';
 }
 
-int get_precedence(const char &op) {
+int expreval::get_precedence(char op) {
   if (op == '+' || op == '-') {
     return 1;
   }
@@ -16,25 +16,51 @@ int get_precedence(const char &op) {
 
 std::optional<std::queue<std::string>>
 expreval::shunting_yard(const std::string &expression) {
-  if (expression.empty() && expression.data() != nullptr) {
-    return std::nullopt;
-  }
   std::queue<std::string> output;
   std::stack<char> operators;
 
-  for (const auto &c : expression) {
+  for (char c : expression) {
     if (std::isspace(c)) {
       continue;
     }
 
     if (std::isdigit(c)) {
-      //
+      std::string operand;
+      while (std::isdigit(c) || (c == '.' && std::isdigit(expression[c + 1]))) {
+        operand += c;
+        ++c;
+        if (static_cast<std::size_t>(c) >= expression.size()) {
+          break;
+        }
+      }
+      output.push(operand);
+
     } else if (is_operator(c)) {
-      //
+      using namespace expreval;
+
+      while (!operators.empty() && is_operator(operators.top()) &&
+             get_precedence(c) <= get_precedence(operators.top())) {
+        output.push(std::string(1, operators.top()));
+        operators.pop();
+      }
+      operators.push(c);
+
     } else if (c == '(') {
-      //
+      operators.push(c);
+
     } else if (c == ')') {
-      //
+      while (!operators.empty() && operators.top() != '(') {
+        output.push(std::string(1, operators.top()));
+        operators.pop();
+      }
+
+      if (!operators.empty() && operators.top() == '(') {
+        operators.pop();
+      } else {
+        // hadnle shit
+        std::cerr << "Mismatched parenthesis!" << std::endl;
+        return {};
+      }
     }
   }
 

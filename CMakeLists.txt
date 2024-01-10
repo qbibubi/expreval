@@ -7,11 +7,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_GENERATOR "Ninja")
 
+target_compile_options(expreval PRIVATE -Wall -Wextra -Werror)
+
 include_directories(${CMAKE_SOURCE_DIR}/include)
 add_executable(
   expreval
   main.cpp
   src/expreval.cpp
+  src/queue.cpp
+  src/stack.cpp
+  src/debug.cpp
 )
 
-target_compile_options(expreval PRIVATE -Wall -Wextra)

@@ -9,6 +9,7 @@ int main() {
     std::cout << postfix->front() << ' ';
     postfix->pop();
   }
+  std::cout << std::endl;
 
   return 0;
 }

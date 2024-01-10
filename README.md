@@ -8,6 +8,8 @@
 
 ## Installation
 
+Ensure that `ninja` is installed on your system and is in the PATH.
+
 ```bash
 git clone https://www.github.com/qbibubi/expreval.git
 ./build.sh && ./run.sh

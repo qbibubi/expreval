@@ -7,15 +7,15 @@ namespace queue {
 
 template <typename T> class Queue {
 public:
-  Queue() {}
+  Queue() : m_front(nullptr), m_back(nullptr) {}
   ~Queue() = default;
 
   std::optional<T> front() const;
   std::optional<T> back() const;
   bool empty() const;
-  int size() const;
   void push(const T &value);
   void pop();
+  int size() const;
 
 private:
   struct Node {

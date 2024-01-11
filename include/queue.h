@@ -12,10 +12,10 @@ public:
 
   std::optional<T> front() const;
   std::optional<T> back() const;
+  std::size_t size() const;
   bool empty() const;
   void push(const T &value);
   void pop();
-  int size() const;
 
 private:
   struct Node {
@@ -25,7 +25,7 @@ private:
   };
 
   std::unique_ptr<T> m_front;
-  T *m_back;
+  Node *m_back;
 };
 
 }; // namespace queue

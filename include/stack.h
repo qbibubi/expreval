@@ -4,6 +4,7 @@
 #include <optional>
 
 namespace stack {
+
 template <typename T> class Node {
 public:
   Node(const T &data) : data(data), next(nullptr) {}
@@ -23,4 +24,5 @@ public:
 private:
   std::unique_ptr<Node<T>> top;
 };
+
 }; // namespace stack

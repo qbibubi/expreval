@@ -10,7 +10,7 @@ set(CMAKE_GENERATOR "Ninja")
 include_directories(${CMAKE_SOURCE_DIR}/include)
 add_executable(
   expreval
-  main.cpp
+  src/main.cpp
   src/debug.cpp
   src/expreval.cpp
   src/queue.cpp

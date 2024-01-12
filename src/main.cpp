@@ -1,4 +1,4 @@
-#include "include/expreval.h"
+#include "expreval.h"
 
 int main() {
   // std::string expression = "(12 + 3) * (3 - 2) - 1";
@@ -9,6 +9,7 @@ int main() {
     std::cout << postfix->front() << ' ';
     postfix->pop();
   }
+
   std::cout << std::endl;
 
   return 0;
